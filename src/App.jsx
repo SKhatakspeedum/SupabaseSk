@@ -3,6 +3,8 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Orders from "./pages/Orders";
+import Signup from './pages/SignUp';
+import Login from './pages/Login';
 
 function App() {
 
@@ -37,6 +39,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Product />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Login />} />
         </Routes>
       </main>
     </div>
