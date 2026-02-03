@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import supabase from '../config/supabaseClient'
+import ProductCard from './ProductCard'
 
 
 const Product = () => {
@@ -28,17 +29,13 @@ const Product = () => {
     return (
         <div>
           {smoothies && (
-            <div>
+            <div className="smoothie-grid">
                 {smoothies.map(smoothie=>(
-                    <p key={smoothie.id}>{smoothie.title}</p>
+                     <ProductCard key={smoothie.id} product={smoothie}/>
                 ))}
             </div>
           )}
-          {
-            fetchError && (
-                <p>{fetchError}</p>
-            )
-          }
+          {fetchError && (<p>{fetchError}</p>)}
         </div>
     )
 }
