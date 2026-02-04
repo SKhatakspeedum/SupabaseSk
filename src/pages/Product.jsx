@@ -1,5 +1,5 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import supabase from '../config/supabaseClient'
 import ProductCard from './ProductCard'
 
@@ -27,7 +27,13 @@ const Product = () => {
         fetchProducts();
     },[])
     return (
-        <div>
+        <div className="page">
+          <div className="section-header">
+            <h2>Products</h2>
+            <Link to="/create" className="btn-add-product">
+                <span>➕</span> Add Product
+            </Link>
+          </div>
           {smoothies && (
             <div className="smoothie-grid">
                 {smoothies.map(smoothie=>(

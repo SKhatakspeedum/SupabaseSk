@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Orders from "./pages/Orders";
+import CreateProduct from "./pages/CreateProduct";
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
 
@@ -73,6 +74,7 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Product />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/create" element={<CreateProduct />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Login />} />
         </Routes>
