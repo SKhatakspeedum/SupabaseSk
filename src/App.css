@@ -836,3 +836,27 @@
   box-shadow: 0 8px 25px rgba(100, 108, 255, 0.5),
               0 0 20px rgba(62, 207, 142, 0.4);
 }
+
+.product-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.product-card__btn--delete {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  padding: 0.75rem;
+  color: #ef4444;
+  box-shadow: none;
+}
+
+.product-card__btn--delete:hover {
+  background: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.product-card__btn--delete::before {
+  display: none;
+}

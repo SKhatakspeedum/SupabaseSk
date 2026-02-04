@@ -1,4 +1,24 @@
-const ProductCard = ({ product }) => {
+import supabase from '../config/supabaseClient'
+
+const ProductCard = ({ product, onDelete }) => {
+
+  const handleDelete = async () => {
+    const { data, error } = await supabase
+      .from('Product')
+      .delete()
+      .eq('id', product.id)
+    
+    if (error) {
+      console.log(error)
+    }
+    
+    if (data || !error) { // Supabase delete doesn't always return data if items are deleted, check logic
+        // But if error is null it usually means success
+      console.log(data)
+      onDelete(product.id)
+    }
+  }
+
   return (
     <div className="product-card">
       <div className="product-card__header">
@@ -14,10 +34,15 @@ const ProductCard = ({ product }) => {
         <span className="product-card__location">
           📍 {product.location}
         </span>
-
-        <button className="product-card__btn">
-          Add to Cart
-        </button>
+        
+        <div className="product-card__actions">
+            <button className="product-card__btn product-card__btn--delete" onClick={handleDelete}>
+                <i className="fa-solid fa-trash"></i>
+            </button>
+            <button className="product-card__btn">
+            Add to Cart
+            </button>
+        </div>
       </div>
     </div>
   );

@@ -26,6 +26,12 @@ const Product = () => {
         }
         fetchProducts();
     },[])
+    const handleDelete = (id) => {
+        setSmoothies(prevSmoothies => {
+            return prevSmoothies.filter(sm => sm.id !== id)
+        })
+    }
+
     return (
         <div className="page">
           <div className="section-header">
@@ -37,7 +43,11 @@ const Product = () => {
           {smoothies && (
             <div className="smoothie-grid">
                 {smoothies.map(smoothie=>(
-                     <ProductCard key={smoothie.id} product={smoothie}/>
+                     <ProductCard 
+                        key={smoothie.id} 
+                        product={smoothie}
+                        onDelete={handleDelete}
+                    />
                 ))}
             </div>
           )}
